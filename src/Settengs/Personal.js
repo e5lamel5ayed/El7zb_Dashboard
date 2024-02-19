@@ -146,7 +146,7 @@ const Form = () => {
             type="submit"
             sx={{ textTransform: "capitalize" }}
             variant="contained"
-            style={{backgroundColor: "#937a34"}}
+            style={{backgroundColor: "#dc1f27"}}
           >
             Create New User
           </Button>

@@ -180,31 +180,23 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
+          {/* <Typography
+            // variant="h6"
+            // noWrap
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
+          > */}
             <Link className='logo'>
             
             <img style={{
               width:"20%",
-              borderRadius:"50%",
+              // borderRadius:"50%",
              
-              backgroundColor:"#fff"}} src='https://khadamatay.vercel.app/assets/Logo.4b1e1722.svg' />
-              <img src='https://khadamatay.vercel.app/assets/Khadamatay.24083d44.svg'/>
+              backgroundColor:"#fff"}} src='https://eladlparty.com/wp-content/uploads/2022/11/Logo-1.png' />
+              {/* <img src='https://eladlparty.com/wp-content/uploads/2022/11/Logo-1.png'/> */}
             </Link>
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase 
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+          {/* </Typography> */}
+
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">

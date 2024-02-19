@@ -13,26 +13,63 @@ background: linear-gradient (158deg, rgb(224, 224, 224) 0%, rrgb(233, 237, 254) 
     justify-content: space-between;
 }
 .head-text{
-    color: #b39952;
+    color: #dc1f27;
     font-size: 16px;
     font-weight: bold;
     font-family: sans-serif;
 }
 .dd{
-    margin-top: 20px;
+    margin-top: 25px;
 }
 .dd:hover{
-    background-color: #b39952;
+    background-color: #dc1f27;
     width: 100%;
     color: #fff;
 }
 .logout{
-    background-color: #937a34;
+    background-color: #dc1f27;
     /* width: 50px; */
     /* margin-left: 70px; */
     /* margin-right: 20px; */
     color: #fff;
 }
+.addMember:hover{
+    background-color: #dc1f27 !important;
+
+}
+.hoverr{
+    background-color: #dc1f27 !important;
+    display: block !important;
+    margin-left: 29% !important;
+    margin-right: auto !important;
+    margin-top: 50px !important;
+    width: 29% !important;
+    font-size: 20px !important;
+
+}
 .hoverr:hover{
-    background-color: #937a34 !important;
+    background-color: #e7111c !important;
+}
+.form{
+    /* margin-top: 2%; */
+    /* width: 90%; */
+    /* padding: 8%; */
+    /* padding-left: 11%; */
+    /* padding-top: 10%; */
+    /* padding-bottom: 10%; */
+    /* background-color: #fff; */
+}
+.form-text{
+    text-align: center;
+    font-size: 25px !important;
+    font-weight: 700 !important;
+    padding-top: 6%;
+    padding-bottom: 6%;
+    padding-right: 18%;
+}
+.slider-text{
+    font-size: 23px !important;
+    font-weight: 800 !important;
+    margin-left: auto;
+    margin-right: auto;
 }

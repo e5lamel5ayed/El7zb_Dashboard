@@ -20,8 +20,9 @@ import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
 import FeedIcon from '@mui/icons-material/Feed';
 import KeyboardCommandKeyIcon from '@mui/icons-material/KeyboardCommandKey';
 import SettingsIcon from '@mui/icons-material/Settings';
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAppStore } from '../appStore';
+import GroupsIcon from '@mui/icons-material/Groups';
 
 
 
@@ -80,16 +81,16 @@ export default function Sidenav() {
   const theme = useTheme();
   // const [open, setOpen] = React.useState(true);
   const navigate = useNavigate();
-  const open = useAppStore((state)=>state.dopen);
+  const open = useAppStore((state) => state.dopen);
 
   return (
-    
-    <Box sx={{  display: 'flex' }}>
-      
-      <Box height={30}/>
+
+    <Box sx={{ display: 'flex' }}>
+
+      <Box height={30} />
       <CssBaseline />
-  
-      <Drawer variant="permanent" open={open}>
+
+      <Drawer variant="permanent" anchor='right' open={open}>
         <DrawerHeader>
           <IconButton>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
@@ -97,7 +98,7 @@ export default function Sidenav() {
         </DrawerHeader>
         <Divider />
         <List>
-        <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={()=>{navigate("/")}}>
+          <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("/") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -112,13 +113,15 @@ export default function Sidenav() {
                   justifyContent: "center",
                 }}
               >
-                <InboxIcon /> 
+                <InboxIcon />
               </DashboardIcon>
-              <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 }} />
+              {/* <ListItemText className='slider-text' primary="الرئيسيه"  sx={{ opacity: open ? 1 : 0 }} /> */}
+              <h4 className='slider-text' style={{ opacity: open ? 1 : 0 }}>الرئيسيه</h4>
+
             </ListItemButton>
           </ListItem>
 
-        <ListItem className='dd' disablePadding sx={{ display: "block" }}  onClick={()=>{navigate("/about")}}>
+          <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("/about") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -126,20 +129,20 @@ export default function Sidenav() {
                 px: 2.5,
               }}
             >
-              <KeyboardCommandKeyIcon
+              <GroupsIcon
                 sx={{
                   minwidth: 0,
                   mr: open ? 3 : "auto",
                   justifyContent: "center",
                 }}
               >
-                <InboxIcon /> 
-              </KeyboardCommandKeyIcon>
-              <ListItemText primary="My Community" sx={{ opacity: open ? 1 : 0 }} />
+                < InboxIcon />
+              </GroupsIcon>
+              <h4 className='slider-text' style={{ opacity: open ? 1 : 0 }}>الاعضاء</h4>
             </ListItemButton>
           </ListItem>
 
-        <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={()=>{navigate("")}}>
+          <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -154,13 +157,13 @@ export default function Sidenav() {
                   justifyContent: "center",
                 }}
               >
-                <InboxIcon /> 
+                <InboxIcon />
               </TuneIcon>
-              <ListItemText primary="Requests" sx={{ opacity: open ? 1 : 0 }} />
+              <h4 className='slider-text' style={{ opacity: open ? 1 : 0 }}>الطلبات</h4>
             </ListItemButton>
           </ListItem>
 
-        <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={()=>{navigate("/messges")}}>
+          <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -175,13 +178,13 @@ export default function Sidenav() {
                   justifyContent: "center",
                 }}
               >
-                <InboxIcon /> 
+                <InboxIcon />
               </MarkUnreadChatAltIcon>
-              <ListItemText primary="Messaging" sx={{ opacity: open ? 1 : 0 }} />
+              <h4 className='slider-text' style={{ opacity: open ? 1 : 0 }}>المراسلات</h4>
             </ListItemButton>
           </ListItem>
 
-        <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={()=>{navigate("")}}>
+          <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("/governorates") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -196,13 +199,13 @@ export default function Sidenav() {
                   justifyContent: "center",
                 }}
               >
-                <InboxIcon /> 
+                <InboxIcon />
               </FeedIcon>
-              <ListItemText primary="Community Info" sx={{ opacity: open ? 1 : 0 }} />
+              <h4 className='slider-text' style={{ opacity: open ? 1 : 0 }}>معلومات</h4>
             </ListItemButton>
           </ListItem>
 
-        <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={()=>{navigate("/settings")}}>
+          <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("/settings") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -217,13 +220,13 @@ export default function Sidenav() {
                   justifyContent: "center",
                 }}
               >
-                <InboxIcon /> 
+                <InboxIcon />
               </SettingsIcon>
-              <ListItemText primary="Settings" sx={{ opacity: open ? 1 : 0 }} />
+              <h4 className='slider-text' style={{ opacity: open ? 1 : 0 }}>الأعدادات</h4>
             </ListItemButton>
           </ListItem>
 
-        <ListItem className=' logout' disablePadding sx={{ display: "block" , marginTop:"70%" }} onClick={()=>{navigate("")}}>
+          <ListItem className=' logout' disablePadding sx={{ display: "block", marginTop: "50%" }} onClick={() => { navigate("") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -238,17 +241,13 @@ export default function Sidenav() {
                   justifyContent: "center",
                 }}
               >
-                <InboxIcon /> 
+                <InboxIcon />
               </LogoutIcon>
-              <ListItemText primary="Log Out" sx={{ opacity: open ? 1 : 0 }} />
+              <h4 className='slider-text' style={{ opacity: open ? 1 : 0 }}>تسجيل الخروج</h4>
             </ListItemButton>
           </ListItem>
-
-
         </List>
-
       </Drawer>
-      
     </Box>
   );
 }

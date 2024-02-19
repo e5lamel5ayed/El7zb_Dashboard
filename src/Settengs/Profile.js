@@ -107,7 +107,7 @@ const PersonalPage = () => {
               variant="contained"
               color="primary"
               onClick={handleSave}
-              style={{ marginTop: '20px',backgroundColor:" #937a34" }}
+              style={{ marginTop: '20px',backgroundColor:" #dc1f27" }}
             >
               Save
             </Button>
