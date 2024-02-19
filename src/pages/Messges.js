@@ -75,7 +75,6 @@ export default function Settings() {
         <NAvbar />
         <Box height={70} />
         <Box anchor='right' sx={{ display: "flex" }}>
-
           <Sidenav />
 
           <Box component="main" sx={{
@@ -85,7 +84,6 @@ export default function Settings() {
             backgroundColor:"#fff",
             p:"5%"
             }}>
- 
             <form style={{ direction: "rtl", }}>
               <div class="form-row">
                 <div class="form-group col-md-8">
