@@ -80,10 +80,10 @@ export default function Settings() {
           <Box component="main" sx={{
             width: "75%",
             position: "relative",
-            mr: "5%", mt: "5%", mb:"5%",
-            backgroundColor:"#fff",
-            p:"5%"
-            }}>
+            mr: "5%", mt: "5%", mb: "5%",
+            backgroundColor: "#fff",
+            p: "5%"
+          }}>
             <form style={{ direction: "rtl", }}>
               <div class="form-row">
                 <div class="form-group col-md-8">
@@ -134,7 +134,7 @@ export default function Settings() {
                 <div className='col-md-2 d-flex'>
                   <h4>جهة الميلاد :</h4>
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-2">
                   <label
                     className='d-flex'
                     style={{
@@ -144,7 +144,7 @@ export default function Settings() {
                   >محافظه</label>
                   <input type="text" class="form-control" id="inputAddress2" />
                 </div>
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-2">
                   <label
                     className='d-flex'
                     style={{
@@ -154,38 +154,43 @@ export default function Settings() {
                   >قسم/مركز</label>
                   <input type="text" class="form-control" id="inputAddress2" />
                 </div>
-                <div class="form-group col-md-2">
-                  {/* <div class="form-check">
-                  <div>
 
-                    <label class="form-check-label" 
-                    
+                <div className='form-check col-md-6'>
+                  <label
+                    className='d-flex'
                     style={{
                       fontSize: "20px",
-                      fontWeight:"600"
-                      }}
-                    >
-                      ذكر
-                    </label>
-                  <input class="form-check-input" type="checkbox" id="gridCheck"/>
-                  </div>
-                  <div>
+                      fontWeight: "600"
+                    }}
+                  >النوع:</label>
+                  <div className='col-md-4 form-group'>
 
-                    <label class="form-check-label"
-                    
-                style={{
-                  fontSize: "20px",
-                  fontWeight:"600"
-                  }}>
-                      انثى
-                    </label>
-                  <input class="form-check-input" type="checkbox" id="gridCheck"/>
+                    <div>
+                      <label class="form-check-label"
+
+                        style={{
+                          fontSize: "25px",
+                          fontWeight: "600"
+                        }}
+                      >
+                        ذكر
+                      </label>
+                      <input class="form-check-input" type="radio" name='النوع' value='ذكر' id="gridCheck" />
+                    </div>
+                    <div>
+                      <label class="form-check-label"
+                        style={{
+                          fontSize: "25px",
+                          fontWeight: "600"
+                        }}>
+                        انثى
+                      </label>
+                      <input class="form-check-input" type="radio" name='النوع' value='أثنثي' id="gridCheck" />
+                    </div>
                   </div>
-                    
-                </div> */}
                 </div>
-
               </div>
+
 
               <div class="form-row">
                 <div class="form-group col-md-6">
@@ -313,19 +318,54 @@ export default function Settings() {
                 </div>
               </div>
 
-              {/* //عنوان المراسلات
+              <div className='form-row form-check-ex'>
+
+              <label
+                    className='d-flex'
+                    style={{
+                      fontSize: "20px",
+                      fontWeight: "600"
+                    }}
+                  > عنوان المراسلات:</label>
+                
+                <div className='col-md-4 form-group'>
+                  <div>
+                    <label class="form-check-label"
+
+                      style={{
+                        fontSize: "25px",
+                        fontWeight: "600"
+                      }}
+                    >
+                      محل الاقامة
+                    </label>
+                    <input class="form-check-input" type="radio" name='عنوان المراسلات' value='محل الاقامة' id="gridCheck" />
+                  </div>
+                  <div>
+                    <label class="form-check-label"
+                      style={{
+                        fontSize: "25px",
+                        fontWeight: "600"
+                      }}>
+                      محل العمل
+                    </label>
+                    <input class="form-check-input" type="radio" name='عنوان المراسلات' value='محل العمل' id="gridCheck" />
+                  </div>
+                </div>
+              </div>
+
               <div class="form-row">
                 <div class="form-group col-md-12">
-                  <label 
-                  className='d-flex'
-                  style={{
-                    fontSize: "20px",
-                    fontWeight:"600"
+                  <label
+                    className='d-flex'
+                    style={{
+                      fontSize: "20px",
+                      fontWeight: "600"
                     }}
                   > عنوان الاقامه العفلي تفصيليا</label>
-                  <input type="text" class="form-control" id="inputCity"/>
+                  <input type="text" class="form-control" id="inputCity" />
                 </div>
-              </div> */}
+              </div>
 
               <div className='form-row'>
                 <div className='col-md-2 d-flex'>
@@ -339,7 +379,7 @@ export default function Settings() {
                       fontWeight: "600"
                     }}
                   >منزل</label>
-                  <input type="t" class="form-control" id="inputAddress2" />
+                  <input type="text" class="form-control" id="inputAddress2" />
                 </div>
                 <div class="form-group col-md-4">
                   <label
@@ -367,10 +407,40 @@ export default function Settings() {
                 </div>
               </div>
 
-              {/* //هل انت عضو باحد النقابات
+              <div className='form-row form-check-ex'>
+                <div className='title'>
+                  <h4>هل انت عضو باحد النقابات:</h4>
+                </div>
+                <div className='col-md-4 form-group'>
+
+                  <div>
+                    <label class="form-check-label"
+
+                      style={{
+                        fontSize: "25px",
+                        fontWeight: "600"
+                      }}
+                    >
+                      نعم
+                    </label>
+                    <input class="form-check-input" type="radio" name='عضوية النقابة' value='نعم' id="gridCheck" />
+                  </div>
+                  <div>
+                    <label class="form-check-label"
+                      style={{
+                        fontSize: "25px",
+                        fontWeight: "600"
+                      }}>
+                      لا
+                    </label>
+                    <input class="form-check-input" type="radio" name='عضوية النقابة' value='لا' id="gridCheck" />
+                  </div>
+                </div>
+              </div>
+
               <div>
 
-              </div> */}
+              </div>
 
 
               <div class="form-row">
@@ -410,12 +480,40 @@ export default function Settings() {
 
               </div>
 
-              {/* //هل كنت عضوا فالحزب من قبل
-              <div>
-              </div> */}
+
+              <div className='form-row form-check-ex'>
+                <div className='title col-md-4'>
+                  <h4>هل كنت عضوا في الحزب من قبل:</h4>
+                </div>
+                <div className='col-md-4 form-group'>
+
+                  <div>
+                    <label class="form-check-label"
+
+                      style={{
+                        fontSize: "25px",
+                        fontWeight: "600"
+                      }}
+                    >
+                      نعم
+                    </label>
+                    <input class="form-check-input" type="radio" name='عضوية الحزب' value='نعم' id="gridCheck" />
+                  </div>
+                  <div>
+                    <label class="form-check-label"
+                      style={{
+                        fontSize: "25px",
+                        fontWeight: "600"
+                      }}>
+                      لا
+                    </label>
+                    <input class="form-check-input" type="radio" name='عضوية الحزب' value='لا' id="gridCheck" />
+                  </div>
+                </div>
+              </div>
 
 
-            <div class="form-row">
+              <div class="form-row">
                 <div class="form-group col-md-12">
                   <label
                     className='d-flex'
@@ -428,9 +526,37 @@ export default function Settings() {
                 </div>
               </div>
 
-                {/* //  هل سبق لك الترشح فً انتخابات سابقه
-              <div>
-              </div> */}
+
+              <div className='form-row form-check-ex'>
+                <div className='title col-md-4'>
+                  <h4>هل سبق لك الترشح في انتخابات سابقه:</h4>
+                </div>
+                <div className='col-md-4 form-group'>
+
+                  <div>
+                    <label class="form-check-label"
+
+                      style={{
+                        fontSize: "25px",
+                        fontWeight: "600"
+                      }}
+                    >
+                      نعم
+                    </label>
+                    <input class="form-check-input" type="radio" name='الترشح في الإنتخابات' value='نعم' id="gridCheck" />
+                  </div>
+                  <div>
+                    <label class="form-check-label"
+                      style={{
+                        fontSize: "25px",
+                        fontWeight: "600"
+                      }}>
+                      لا
+                    </label>
+                    <input class="form-check-input" type="radio" name='الترشح في الإنتخابات' value='لا' id="gridCheck" />
+                  </div>
+                </div>
+              </div>
 
               <div class="form-row">
                 <div class="form-group col-md-12">
@@ -445,9 +571,37 @@ export default function Settings() {
                 </div>
               </div>
 
-                {/* // هل درست برنامج الحزب
-              <div>
-              </div> */}
+
+              <div className='form-row form-check-ex'>
+                <div className='title col-md-4'>
+                  <h4> هل درست برنامج الحزب:</h4>
+                </div>
+                <div className='col-md-4 form-group'>
+
+                  <div>
+                    <label class="form-check-label"
+
+                      style={{
+                        fontSize: "25px",
+                        fontWeight: "600"
+                      }}
+                    >
+                      نعم
+                    </label>
+                    <input class="form-check-input" type="radio" name='دراسة برنامج الحزب' value='نعم' id="gridCheck" />
+                  </div>
+                  <div>
+                    <label class="form-check-label"
+                      style={{
+                        fontSize: "25px",
+                        fontWeight: "600"
+                      }}>
+                      لا
+                    </label>
+                    <input class="form-check-input" type="radio" name='دراسة برنامج الحزب' value='لا' id="gridCheck" />
+                  </div>
+                </div>
+              </div>
 
               <div class="form-row">
                 <div class="form-group col-md-12">
@@ -462,18 +616,41 @@ export default function Settings() {
                 </div>
               </div>
 
-                {/* //  ما المجال التخصصى الذي ٌمكنك فٌه مساعدة الحزب 
-              <div>
-              </div> */}
+
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label
+                    className='d-flex'
+                    style={{
+                      fontSize: "20px",
+                      fontWeight: "600"
+                    }}
+                  >ما المجال التخصصى الذي ٌمكنك فيه مساعدة الحزب</label>
+                  <textarea type="text" class="form-control" id="inputCity" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label
+                    className='d-flex'
+                    style={{
+                      fontSize: "20px",
+                      fontWeight: "600"
+                    }}
+                  >ما هي وسيلة التواصل المناسبة لك</label>
+                  <textarea type="text" class="form-control" id="inputCity" />
+                </div>
+              </div>
 
               <div
-              style={{
-                display:"flex",
-                justifyContent: "center",
-              }}
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                }}
               >
 
-              <button type="submit" className='save'>حفظ</button>
+                <button type="submit" className='save'>حفظ</button>
               </div>
             </form>
           </Box>
