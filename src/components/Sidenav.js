@@ -98,18 +98,18 @@ export default function Sidenav() {
         </DrawerHeader>
         <Divider />
         <List>
-          <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("/") }}>
+          <ListItem className='dd' disablePadding sx={{ display: "block",padding:"2px" }} onClick={() => { navigate("/") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
-                justifyContent: open ? "initial" : "center",
+                // justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
             >
               <DashboardIcon
                 sx={{
                   minwidth: 0,
-                  mr: open ? 3 : "auto",
+                  // mr: open ? 3 : "auto",
                   justifyContent: "center",
                 }}
               >
@@ -125,14 +125,14 @@ export default function Sidenav() {
             <ListItemButton
               sx={{
                 minHeight: 48,
-                justifyContent: open ? "initial" : "center",
+                // justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
             >
               <GroupsIcon
                 sx={{
                   minwidth: 0,
-                  mr: open ? 3 : "auto",
+                  // mr: open ? 3 : "auto",
                   justifyContent: "center",
                 }}
               >
@@ -146,14 +146,14 @@ export default function Sidenav() {
             <ListItemButton
               sx={{
                 minHeight: 48,
-                justifyContent: open ? "initial" : "center",
+                // justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
             >
               <TuneIcon
                 sx={{
                   minwidth: 0,
-                  mr: open ? 3 : "auto",
+                  // mr: open ? 3 : "auto",
                   justifyContent: "center",
                 }}
               >
@@ -167,14 +167,14 @@ export default function Sidenav() {
             <ListItemButton
               sx={{
                 minHeight: 48,
-                justifyContent: open ? "initial" : "center",
+                // justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
             >
               <MarkUnreadChatAltIcon
                 sx={{
                   minwidth: 0,
-                  mr: open ? 3 : "auto",
+                  // mr: open ? 3 : "auto",
                   justifyContent: "center",
                 }}
               >
@@ -188,14 +188,14 @@ export default function Sidenav() {
             <ListItemButton
               sx={{
                 minHeight: 48,
-                justifyContent: open ? "initial" : "center",
+                // justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
             >
               <FeedIcon
                 sx={{
                   minwidth: 0,
-                  mr: open ? 3 : "auto",
+                  // mr: open ? 3 : "auto",
                   justifyContent: "center",
                 }}
               >
@@ -209,14 +209,14 @@ export default function Sidenav() {
             <ListItemButton
               sx={{
                 minHeight: 48,
-                justifyContent: open ? "initial" : "center",
+                // justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
             >
               <SettingsIcon
                 sx={{
                   minwidth: 0,
-                  mr: open ? 3 : "auto",
+                  // mr: open ? 3 : "auto",
                   justifyContent: "center",
                 }}
               >
@@ -230,14 +230,14 @@ export default function Sidenav() {
             <ListItemButton
               sx={{
                 minHeight: 48,
-                justifyContent: open ? "initial" : "center",
+                // justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
             >
               <LogoutIcon
                 sx={{
                   minwidth: 0,
-                  mr: open ? 3 : "auto",
+                  // mr: open ? 3 : "auto",
                   justifyContent: "center",
                 }}
               >
