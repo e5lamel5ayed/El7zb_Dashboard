@@ -127,6 +127,7 @@ export default function MemberForm() {
           fontSize: "20px",
           fontWeight: "800",
           margin: "12px",
+          display:"flex",
         }} className='addMember' variant="contained" >اضافه عضو</Button>
       </Link>
 
