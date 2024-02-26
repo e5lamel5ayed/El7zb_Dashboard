@@ -32,7 +32,7 @@ export default function Home() {
               <Grid item md={8} xs={10}>
                 <Stack spacing={2} direction={"row"}>
                   <Card
-                    style={{ backgroundColor: "#b39952", color: "#fff" }}
+                    style={{ backgroundColor: "#b39952", color: "#fff",margin:"4px" }}
                     className='grade1' sx={{ minWidth: 49 + "%" }} >
                     <CardContent>
 
@@ -48,7 +48,7 @@ export default function Home() {
                   </Card>
 
                   <Card
-                    style={{ backgroundColor: "#00b0f3", color: "#fff" }}
+                    style={{ backgroundColor: "#00b0f3", color: "#fff" ,margin:"4px"}}
                     sx={{ minWidth: 49 + "%" }} >
 
                     <CardContent>
@@ -68,7 +68,7 @@ export default function Home() {
 
                 <Stack spacing={2} direction={{xs : "row"}} sx={{ flexGrow: 1, pt: 3 }}>
                   <Card
-                    style={{ backgroundColor: "#ee5c00", color: "#fff" }}
+                    style={{ backgroundColor: "#ee5c00", color: "#fff",margin:"4px" }}
                     className='grade3' sx={{ minWidth: 49 + "%" }} >
 
                     <CardContent >
@@ -85,7 +85,7 @@ export default function Home() {
                   </Card>
 
                   <Card
-                    style={{ backgroundColor: "#e93160", color: "#fff" }}
+                    style={{ backgroundColor: "#e93160", color: "#fff" ,margin:"4px"}}
                     className='grade4' sx={{ minWidth: 49 + "%" }}>
 
                     <CardContent>
@@ -118,11 +118,7 @@ export default function Home() {
                 </CardActions>
                </Card>
                 </Stack>
-
               </Grid>
-
-
-
               <Grid item  md={4} xs={0} sx ={{width: 90+"%"}} >
               <Card sx={{ height: 80+ "hv" }}>
                   <CardContent >
@@ -136,10 +132,9 @@ export default function Home() {
                 </Card>
               </Grid>
             </Grid>
-
+                
             <Box height={20} />
-           
-
+          
           </Box>
         </Box>
       </div>
