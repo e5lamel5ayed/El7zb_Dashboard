@@ -1,43 +1,49 @@
-.grade1{
+.grade1 {
     background-color: #009359;
 }
 
-.bgcolor{
+.bgcolor {
     min-height: 100vh;
-background:#ECEFF1;
-background: linear-gradient (158deg, rgb(224, 224, 224) 0%, rrgb(233, 237, 254) 100%);
+    background: #ECEFF1;
+    background: linear-gradient (158deg, rgb(224, 224, 224) 0%, rrgb(233, 237, 254) 100%);
 }
 
-.logo{
+.logo {
     display: flex;
     justify-content: space-between;
 }
-.head-text{
+
+.head-text {
     color: #dc1f27;
     font-size: 16px;
     font-weight: bold;
     font-family: sans-serif;
 }
-.dd{
+
+.dd {
     margin-top: 25px;
 }
-.dd:hover{
+
+.dd:hover {
     background-color: #dc1f27;
     width: 100%;
     color: #fff;
 }
-.logout{
+
+.logout {
     background-color: #dc1f27;
     /* width: 50px; */
     /* margin-left: 70px; */
     /* margin-right: 20px; */
     color: #fff;
 }
-.addMember:hover{
+
+.addMember:hover {
     background-color: #dc1f27 !important;
 
 }
-.hoverr{
+
+.hoverr {
     background-color: #dc1f27 !important;
     display: block !important;
     margin-left: 29% !important;
@@ -47,10 +53,13 @@ background: linear-gradient (158deg, rgb(224, 224, 224) 0%, rrgb(233, 237, 254) 
     font-size: 20px !important;
 
 }
-.hoverr:hover{
+
+.hoverr:hover {
     background-color: #e7111c !important;
+    color: #fff !important;
 }
-.save{
+
+.save {
     padding: 6px;
     width: 21%;
     font-size: 25px;
@@ -60,9 +69,45 @@ background: linear-gradient (158deg, rgb(224, 224, 224) 0%, rrgb(233, 237, 254) 
     border-radius: 2%;
     margin-top: 22px;
 }
-.slider-text{
+
+.back {
+    width: 13%;
+    background-color: #dc1f27;
+    height: 40px;
+    margin-left: 2%;
+    margin-top: 3%;
+    color: #fff;
+    text-decoration: none;
+}
+
+.slider-text {
     font-size: 23px !important;
     font-weight: 800 !important;
     margin-left: auto;
     margin-right: auto;
+}
+
+.borderr {
+    border-top-style: solid;
+    border-top-width: 2.5px;
+    border-top-color: #dc1f27;
+    border-top-left-radius: 1%;
+    border-top-right-radius: 1%;
+}
+
+.form-optgroup{
+    select{
+        width: 100%;
+        height: 30px;
+        margin: 10px 0;
+        border-radius: 6px;
+        border: 1px solid #aaa;
+    }
+}
+.form-group-edit{
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
