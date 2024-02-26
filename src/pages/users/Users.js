@@ -115,19 +115,23 @@ export default function MemberForm() {
 
   return (
     <div>
-      <div style={{ display: "flex" }}>
+      <div style={{
+        justifyContent: "center",
+        marginTop: "15px",
+        display: "flex" }}>
         <h1>بيانات الاعضاء</h1>
       </div>
-      <Link to='../messges'>
+      <Link style={{textDecoration:"none"}} to='../messges'>
         <Button sx={{
           backgroundColor: "#dc1f27",
           color: "#fff",
           height: "48px",
-          width: "10%",
+          width: "fit-content",
           fontSize: "20px",
           fontWeight: "800",
           margin: "12px",
-          display:"flex",
+          display:"block",
+          marginBottom:"25px",
         }} className='addMember' variant="contained" >اضافه عضو</Button>
       </Link>
 
@@ -168,10 +172,6 @@ export default function MemberForm() {
                 <TableCell>
 
 
-
-                {/* <Link to={{ pathname: '/edit', state: { jsonObject } }}>Edit JSON Object</Link> */}
-                  
-                  
                   <Link to ="/edit">
                   <Button onClick={() => handleEditMember(member)}><Edit sx={{ color: "#f00609" }} /></Button>
                   </Link>
@@ -182,92 +182,7 @@ export default function MemberForm() {
         </Table>
       </TableContainer>
 
-      <TableContainer component={Paper} sx={{ marginBottom: "2%" }}>
-        <Table>
-          <TableHead>
-            <TableRow sx={{ backgroundColor: "#dc1f27" }}>
-              <TableCell sx={{ color: "#fff" }}>المؤهل الدراسي</TableCell>
-              <TableCell sx={{ color: "#fff" }}> الوظيفه</TableCell>
-              <TableCell sx={{ color: "#fff" }}> جهة العمل</TableCell>
-              <TableCell sx={{ color: "#fff" }}>عنوان العمل </TableCell>
-              <TableCell sx={{ color: "#fff" }}>اسم الحزب</TableCell>
-              <TableCell sx={{ color: "#fff" }}>تاريخ الانضمام</TableCell>
-              <TableCell sx={{ color: "#fff" }}>تاريخ الاستقاله</TableCell>
-              <TableCell sx={{ color: "#fff" }}>التليفون</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {filteredMembers.map((member, index) => (
-              <TableRow key={index}>
-                <TableCell>{member.e}</TableCell>
-                <TableCell>{member.f}</TableCell>
-                <TableCell>{member.g}</TableCell>
-                <TableCell>{member.h}</TableCell>
-                <TableCell>{member.k}</TableCell>
-                <TableCell>{member.l}</TableCell>
-                <TableCell>{member.m}</TableCell>
-                <TableCell>{member.n}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
 
-      <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
-        <DialogTitle>تعديل البيانات</DialogTitle>
-        <DialogContent>
-          {selectedMember && (
-            <>
-              <TextField
-                sx={{ margin: "5px" }}
-                label="الاسم"
-                name="name"
-                value={inputData.name}
-                onChange={handleInputChange}
-              />
-              <TextField
-                sx={{ margin: "5px" }}
-                label="الرقم القومي"
-                name="governorate"
-                value={inputData.governorate}
-                onChange={handleInputChange}
-              />
-              <TextField
-                sx={{ margin: "5px" }}
-                label=" كود العضويه"
-                name="a"
-                value={inputData.a}
-                onChange={handleInputChange}
-              />
-              <TextField
-                sx={{ margin: "5px" }}
-                label=" رقم العضويه"
-                name="b"
-                value={inputData.b}
-                onChange={handleInputChange}
-              />
-              <TextField
-                sx={{ margin: "5px" }}
-                label=" المحافظه"
-                name="c"
-                value={inputData.c}
-                onChange={handleInputChange}
-              />
-              <TextField
-                sx={{ margin: "5px" }}
-                label=" الوظيفه"
-                name="d"
-                value={inputData.d}
-                onChange={handleInputChange}
-              />
-            </>
-          )}
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setOpenDialog(false)}>الغاء</Button>
-          <Button onClick={handleSaveMember}>حفظ</Button>
-        </DialogActions>
-      </Dialog>
     </div>
   );
 }
