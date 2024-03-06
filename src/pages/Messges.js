@@ -4,17 +4,10 @@ import Box from "@mui/material/Box";
 import NAvbar from '../components/Navbar'
 // import Chat from './Chat';
 import React, { useState, useEffect } from 'react';
-import {
-  TextField,
-  Button,
-  Typography,
 
-} from '@mui/material';
-import { ArrowBack, Label } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 
 export default function Settings() {
-
 
   const governoratesData = [
     {
@@ -833,7 +826,6 @@ export default function Settings() {
     }
   ]
 
-
   const [selectedGovernorate, setSelectedGovernorate] = useState(null);
   const handleSelectedGovernorate = (e) => {
     console.log(e);
@@ -843,59 +835,16 @@ export default function Settings() {
     console.log(selectedGovernorate);
   }
 
-  const [inputData, setInputData] = useState({
-    name: '',
-    governorate: '',
-    a: '',
-    b: '',
-    c: '',
-    d: '',
-    e: '',
-    f: '',
-    g: '',
-    h: '',
-    k: '',
-    l: '',
-    m: '',
-    n: '',
-  });
-
-  const [members, setMembers] = useState(
+  const [members] = useState(
     JSON.parse(localStorage.getItem('members')) || []
   );
-
 
   useEffect(() => {
     localStorage.setItem('members', JSON.stringify(members));
   }, [members]);
 
-  const handleInputChange = (e) => {
-    setInputData({
-      ...inputData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const [toggled, setToggled] = useState()
 
-  const handleAddMember = () => {
-
-    setMembers([...members, inputData]);
-    setInputData({
-      name: '',
-      governorate: '',
-      a: '',
-      b: '',
-      c: '',
-      d: '',
-      e: '',
-      f: '',
-      g: '',
-      h: '',
-      k: '',
-      l: '',
-      m: '',
-      n: '',
-    });
-  };
   return (
     <div>
       <div className="bgcolor" >
@@ -903,882 +852,1160 @@ export default function Settings() {
         <NAvbar />
         <Box height={70} />
         <Box anchor='right' sx={{ display: "flex" }}>
+
           <Sidenav />
 
-          <Box component="main" sx={{
-            width: "75%",
-            position: "relative",
-            mr: "5%", mt: "5%", mb: "5%",
-            backgroundColor: "#fff",
+          <Box className='Box-style' component="main">
 
-          }}>
             <div className='d-flex borderr'>
+              <button
+                className='tab1'
+                onClick={() => setToggled(2)}
+              > بيانات اساسيه</button>
+              <button
+                onClick={() => setToggled(1)}
+                className='tab2'
+              > بيانات حزبيه</button>
 
-              <h4
+              <button className='btn back btn-block '>
 
-                className='d-flex'
-                style={{
-                  fonZize: " 32px",
-                  fontWeight: "600",
-                  margin: "4%",
-                  flexGrow: "1"
-                }}
-              >املأ البيانات</h4>
-              <Link
-                style={{
-                  position: "absolute",
-                  right: "0",
-                  left: "0"
-                }}
-                to="/about">
-                <button className='btn back'>رجوع</button>
-              </Link>
+                <Link className='link-edit' to="/about">
+                  رجوع
+                </Link>
+              </button>
 
             </div>
 
-            <form style={{ direction: "rtl", paddingLeft: "3%", paddingRight: "3%", paddingTop: "1%", paddingBottom: "3%" }}>
-              <div class="form-row mb-3 ">
-                <div class="form-group col-md-8">
-                  <label for="inputEmail4" className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >الاسم</label>
-                  <input type="text" class="form-control" id="inputEmail4" />
+
+
+
+            {toggled === 1 ? (
+              <form className='form-edit' >
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-6">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600",
+                        width: "100%",
+                        height: "49%"
+                      }}
+                    > الصفه الحزبيه</label>
+                    <input type="text" class="form-control" id="inputCity" />
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >نوع العضويه</label>
+                    <select style={{
+                      
+                      width: "100%",
+                      height: "48%",
+                      marginTop:"8px"
+                    }} >
+                      <optgroup >
+                        <option>
+                          منتسب
+                        </option>
+                        <option>
+                          مستقيل
+                        </option>
+                        <option>
+                          عامل
+                        </option>
+                        <option>
+                          مؤسس
+                        </option>
+                        <option>
+                          مجمد لعدم سداد
+                        </option>
+                        <option>
+                          مجمد للسفر
+                        </option>
+
+
+                      </optgroup>
+                    </select >
+
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    > عضو لجنه عامله/حزبيه</label>
+                    <select style={{
+                      
+                      width: "100%",
+                      height: "48%",
+                      marginTop:"8px"
+                    }}>
+                      <optgroup>
+
+                        <option>
+                          عضو مجلس النواب
+                        </option>
+                        <option>
+                          عضو هيئه عليا
+                        </option>
+                        <option>
+                          عضو مجلس الشيوخ
+                        </option>
+
+
+
+                      </optgroup>
+                    </select>
+
+                  </div>
+
                 </div>
 
-                <div class="form-group col-md-4">
-                  <label className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >الشهره</label>
-                  <input type="text" class="form-control" id="inputPassword4" />
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-3">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600",
+                        width: "100%",
+                        height: "49%"
+                      }}
+                    > منظمه مهنيه </label>
+                    <input type="text" class="form-control" id="inputCity" />
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >قسم الشرطه التابع  </label>
+                    <select style={{
+                      
+                      width: "100%",
+                      height: "48%",
+                      marginTop:"8px"
+                    }} >
+                      <optgroup >
+                        <option>
+                        المحله الكبري اول
+                        </option>
+                        <option>
+                        مركز اسنا
+                        </option>
+                        <option>
+                        المنتزه اول
+                        </option>
+                        <option>
+                        مركز ابنوب
+                        </option>
+                        <option>
+                        مينا البصل
+                        </option>
+                        <option>
+                        مركز ساحل سليم
+                        </option>
+                        <option>
+                        اسيوط ثاني
+                        </option>
+                        <option>
+                        مركز اطسا
+                        </option>
+                        <option>
+                        مركز البلينا
+                        </option>
+                        <option>
+                        الظاهر
+                        </option>
+                        <option>
+                        النزهه
+                        </option>
+                        <option>
+                        مركز كفر الزيات
+                        </option>
+                        <option>
+                        مدينه نصر اول 
+                        </option>
+
+
+                      </optgroup>
+                    </select >
+
+                  </div>
+
+                  <div class="form-group col-md-3">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >دائرة انتخابيه فردي </label>
+                    <select style={{
+                      
+                      width: "100%",
+                      height: "48%",
+                      marginTop:"8px"
+                    }} >
+                      <optgroup >
+                        <option>
+                        دائرة انتخابيه فردي
+                        </option>
+                       
+
+                      </optgroup>
+                    </select >
+
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >دائرة انتخابيه قائمه </label>
+                    <select style={{
+                      
+                      width: "100%",
+                      height: "48%",
+                      marginTop:"8px"
+                    }} >
+                      <optgroup >
+                        <option>
+                        دائرة انتخابيه قائمه
+                        </option>
+                       
+
+                      </optgroup>
+                    </select >
+
+                  </div>
+
                 </div>
 
-              </div>
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-6">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >المؤهل الدرسي</label>
+                    <input type="text" class="form-control" id="inputCity" />
+                  </div>
 
-              <div class="form-row mb-3">
-                <div class="form-group col-md-5">
-                  <label className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >الرقم القومي</label>
-                  <input type="text" class="form-control" id="inputAddress" />
+                  <div class="form-group col-md-4">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >التخصص</label>
+                    <input type="text" class="form-control" id="inputCity" />
+
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >مؤهل اضافي</label>
+                    <input type="text" class="form-control" id="inputZip" />
+                  </div>
+
                 </div>
-                <div class="form-group col-md-4">
+
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-6">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    > الدراسات العليا</label>
+                    <input type="text" class="form-control" id="inputCity" />
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >التخصص2</label>
+                    <input type="text" class="form-control" id="inputCity" />
+
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >سنة</label>
+                    <input type="date" class="form-control" id="inputZip" />
+                  </div>
+
+                </div>
+
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-6">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >  دراسات 1</label>
+                    <input type="text" class="form-control" id="inputCity" />
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >دراسات 2</label>
+                    <input type="text" class="form-control" id="inputCity" />
+
+                  </div>
+
+                  <div class="form-group col-md-2">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >اعلى درجه</label>
+                    <input type="text" class="form-control" id="inputZip" />
+                  </div>
+
+                </div>
+
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-6">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    > الوظيفه الحاليه </label>
+                    <input type="text" class="form-control" id="inputCity" />
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >وظيفه اخرى</label>
+                    <input type="text" class="form-control" id="inputCity" />
+
+                  </div>
+
+                </div>
+
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-6">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >  جهة العمل الرئيس </label>
+                    <input type="text" class="form-control" id="inputCity" />
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    > عنوان العمل</label>
+                    <input type="text" class="form-control" id="inputCity" />
+
+                  </div>
+
+                </div>
+
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-6">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    > عنوان الاقامه وفقا لبطاقة الرقم القومي</label>
+                    <input type="text" class="form-control" id="inputCity" />
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    > عنوان الاقامه العفلي تفصيليا</label>
+                    <input type="text" class="form-control" id="inputCity" />
+                  </div>
+                </div>
+
+                <div className='form-row mb-3 form-check-ex'>
+
                   <label
                     className='d-flex'
                     style={{
                       fontSize: "20px",
                       fontWeight: "600"
                     }}
-                  >جهة الاصدار</label>
-                  <input type="text" class="form-control" id="inputAddress" />
+                  > عنوان المراسلات:</label>
+
+                  <div className='col-md-3 form-group'>
+                    <div>
+                      <label class="form-check-label"
+
+                        style={{
+                          fontSize: "25px",
+                          fontWeight: "600"
+                        }}
+                      >
+                        محل الاقامة
+                      </label>
+                      <input class="form-check-input" type="radio" name='عنوان المراسلات' value='محل الاقامة' id="gridCheck" />
+                    </div>
+                    <div>
+                      <label class="form-check-label"
+                        style={{
+                          fontSize: "25px",
+                          fontWeight: "600"
+                        }}>
+                        محل العمل
+                      </label>
+                      <input class="form-check-input" type="radio" name='عنوان المراسلات' value='محل العمل' id="gridCheck" />
+                    </div>
+                  </div>
                 </div>
-                <div class="form-group col-md-3">
+                  <div class="form-group col-md-5">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    > الزوج ( قرابه )</label>
+                    <input type="text" class="form-control" id="inputCity" />
+                  </div>
+
+                <div className='form-row mb-3'>
+                  <div class="form-group col-md-4">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >الموبايل</label>
+                    <input type="text" class="form-control" id="inputAddress2" />
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >موبايل اضافي</label>
+                    <input type="text" class="form-control" id="inputAddress2" />
+                  </div>
+
+
+                  <div class="form-group col-md-4">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >ت.منزلي</label>
+                    <input type="tel" class="form-control" id="inputAddress2" />
+                  </div>
+
+                </div>
+
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-12">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >الايميل</label>
+                    <input type="email" class="form-control" id="inputCity" />
+                  </div>
+                </div>
+
+                <div className='form-row mb-3'>
+                  <div className=' form-check-ex col-md-4'>
+
+                    <div className='title'>
+                      <h4>هل انت عضو باحد النقابات:</h4>
+                    </div>
+                    <div className='col-md-4 form-group'>
+
+                      <div>
+                        <label class="form-check-label"
+                          style={{
+                            fontSize: "25px",
+                            fontWeight: "600"
+                          }}
+                        >
+                          نعم
+                        </label>
+                        <input class="form-check-input" type="radio" name='عضوية النقابة' value='نعم' id="gridCheck" />
+                      </div>
+                      <div>
+                        <label class="form-check-label"
+                          style={{
+                            fontSize: "25px",
+                            fontWeight: "600"
+                          }}>
+                          لا
+                        </label>
+                        <input class="form-check-input" type="radio" name='عضوية النقابة' value='لا' id="gridCheck" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-5"
+                    style={{
+                      marginRight: "10%"
+                    }}
+                  >
+                    <label className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >اسم النقابه</label>
+                    <input type="text" class="form-control" id="inputPassword4" />
+                  </div>
+
+                </div>
+
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-6">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    > فرع النقابة التابع له محافظة</label>
+                    <input type="text" class="form-control" id="inputCity" />
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >تريخ الانضمام</label>
+                    <input type="date" class="form-control" id="inputZip" />
+                  </div>
+
+                </div>
+
+
+                <div className='form-row mb-3'>
+                  <div className=' form-check-ex col-md-5'>
+
+                    <div className='title'>
+                      <h4>هل كنت عضوا فً حزب من قبل؟ :</h4>
+                    </div>
+                    <div className='col-md-4 form-group'>
+
+                      <div>
+                        <label class="form-check-label"
+                          style={{
+                            fontSize: "25px",
+                            fontWeight: "600"
+                          }}
+                        >
+                          نعم
+                        </label>
+                        <input class="form-check-input" type="radio" name='عضوية النقابة' value='نعم' id="gridCheck" />
+                      </div>
+                      <div>
+                        <label class="form-check-label"
+                          style={{
+                            fontSize: "25px",
+                            fontWeight: "600"
+                          }}>
+                          لا
+                        </label>
+                        <input class="form-check-input" type="radio" name='عضوية النقابة' value='لا' id="gridCheck" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-3"
+                    style={{
+                      marginRight: "2%"
+                    }}
+                  >
+                    <label className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >اسم الحزب</label>
+                    <input type="text" class="form-control" id="inputPassword4" />
+                  </div>
+                  <div class="form-group col-md-3"
+                    style={{
+                      // marginRight:"10%"
+                    }}
+                  >
+                    <label className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    > تاريخ الاستقاله</label>
+                    <input type="date" class="form-control" id="inputPassword4" />
+                  </div>
+                </div>
+
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-12">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    > سبب الاستقاله</label>
+                    <textarea type="text" class="form-control" id="inputCity" />
+                  </div>
+                </div>
+
+                <div className='form-row mb-3 form-check-ex'>
+                  <div className='title col-md-4'>
+                    <h4>هل سبق لك الترشح في انتخابات سابقه:</h4>
+                  </div>
+                  <div className='col-md-4 form-group'>
+
+                    <div>
+                      <label class="form-check-label"
+
+                        style={{
+                          fontSize: "25px",
+                          fontWeight: "600"
+                        }}
+                      >
+                        نعم
+                      </label>
+                      <input class="form-check-input" type="radio" name='الترشح في الإنتخابات' value='نعم' id="gridCheck" />
+                    </div>
+                    <div>
+                      <label class="form-check-label"
+                        style={{
+                          fontSize: "25px",
+                          fontWeight: "600"
+                        }}>
+                        لا
+                      </label>
+                      <input class="form-check-input" type="radio" name='الترشح في الإنتخابات' value='لا' id="gridCheck" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-12">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    > تاريخ الترشح </label>
+                    <input type="date" class="form-control" id="inputCity" />
+                  </div>
+                </div>
+
+
+                <div className='form-row mb-3 form-check-ex'>
+                  <div className='title col-md-4'>
+                    <h4> هل درست برنامج الحزب:</h4>
+                  </div>
+                  <div className='col-md-4 form-group'>
+
+                    <div>
+                      <label class="form-check-label"
+
+                        style={{
+                          fontSize: "25px",
+                          fontWeight: "600"
+                        }}
+                      >
+                        نعم
+                      </label>
+                      <input class="form-check-input" type="radio" name='دراسة برنامج الحزب' value='نعم' id="gridCheck" />
+                    </div>
+                    <div>
+                      <label class="form-check-label"
+                        style={{
+                          fontSize: "25px",
+                          fontWeight: "600"
+                        }}>
+                        لا
+                      </label>
+                      <input class="form-check-input" type="radio" name='دراسة برنامج الحزب' value='لا' id="gridCheck" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-12">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >ما سبب طلبك اإلنضمام لحزب العدل</label>
+                    <textarea type="text" class="form-control" id="inputCity" />
+                  </div>
+                </div>
+
+                <div className='form-row mb-3 form-check-ex'>
+
                   <label
-                    className='d-flex'
+                    className='d-flex '
                     style={{
                       fontSize: "20px",
                       fontWeight: "600"
                     }}
-                  > رقم العضويه</label>
-                  <input type="text" class="form-control" id="inputAddress" />
+                  > ما المجال التخصصى الذي ٌمكنك فٌه مساعدة الحزب ؟ :</label>
+
+                  <div className='col-md-10 form-group-edit'>
+                    <div>
+                      <label class="form-check-label"
+
+                        style={{
+                          fontSize: "25px",
+                          fontWeight: "600"
+                        }}
+                      >
+                        الشباب
+                      </label>
+                      <input class="form-check-input" type="radio" name='المجال التخصصي' value='مساعدة الشباب' id="gridCheck" />
+                    </div>
+                    <div>
+                      <label class="form-check-label"
+                        style={{
+                          fontSize: "25px",
+                          fontWeight: "600"
+                        }}>
+                        المرأه
+                      </label>
+                      <input class="form-check-input" type="radio" name='المجال التخصصي' value='مساعدة المرأه' id="gridCheck" />
+
+                    </div>
+                    <div>
+                      <label class="form-check-label"
+                        style={{
+                          fontSize: "25px",
+                          fontWeight: "600"
+                        }}>
+                        الاعلام
+                      </label>
+                      <input class="form-check-input" type="radio" name='المجال التخصصي' value='مساعدة الاعلام' id="gridCheck" />
+
+                    </div>
+                    <div>
+                      <label class="form-check-label"
+                        style={{
+                          fontSize: "25px",
+                          fontWeight: "600"
+                        }}>
+                        التثقيف
+                      </label>
+                      <input class="form-check-input" type="radio" name='المجال التخصصي' value='مساعدة التثقيف' id="gridCheck" />
+
+                    </div>
+                    <div>
+                      <label class="form-check-label"
+                        style={{
+                          fontSize: "25px",
+                          fontWeight: "600"
+                        }}>
+                        التنظيم
+                      </label>
+                      <input class="form-check-input" type="radio" name='المجال التخصصي' value='مساعدة التنظيم' id="gridCheck" />
+
+                    </div>
+                    <div>
+                      <label class="form-check-label"
+                        style={{
+                          fontSize: "25px",
+                          fontWeight: "600"
+                        }}>
+                        اللجان الفنيه
+                      </label>
+                      <input class="form-check-input" type="radio" name='المجال التخصصي' value='مساعدة اللجان الفنية' id="gridCheck" />
+
+                    </div>
+                  </div>
                 </div>
 
-              </div>
-
-              <div class="form-row mb-3">
-                <div class="form-group col-md-5">
-                  <label className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  > تاريخ الميلاد</label>
-                  <input type="date" class="form-control" id="inputAddress" />
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-12">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >ما هي وسيلة التواصل المناسبة لك</label>
+                    <textarea type="text" class="form-control" id="inputCity" />
+                  </div>
                 </div>
-                <div class="form-group col-md-3">
-                  <label className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >السن</label>
-                  <input type="text" class="form-control" id="inputPassword4" />
+
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-6">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    > ملاحظات للعضويه </label>
+                    <textarea type="text" class="form-control" id="inputCity" />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >ملاحظات عامه </label>
+                    <textarea type="text" class="form-control" id="inputCity" />
+                  </div>
                 </div>
-                <div class="form-group col-md-2">
-                  <label className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >الحاله الاجتماعيه</label>
-                  <input type="text" class="form-control" id="inputPassword4" />
+
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+
+                  <button type="submit" className='save'>حفظ</button>
                 </div>
-                <div class="form-group col-md-2">
-                  <label className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >الديانه</label>
-                  <input type="text" class="form-control" id="inputPassword4" />
+
+              </form>
+            ) : (
+              <form className='form-edit'>
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-6">
+                    <label for="membershipNumber" className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >رقم العضوية</label>
+                    <input type="text" class="form-control" id="membershipNumber" name="membershipNumber" />
+                  </div>
+
+                  <div class="form-group col-md-6">
+                    <label className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >كود العضوية</label>
+                    <input type="text" class="form-control" id="membershipCode" name="membershipCode" />
+                  </div>
                 </div>
-              </div>
 
-              <div className='form-row mb-3 form-optgroup'>
-                
-                <div className='col-md-2 d-flex'>
-                  <h4>جهة الميلاد :</h4>
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-8">
+                    <label for="memberName" className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >اسم العضو</label>
+                    <input type="text" class="form-control" id="memberName" name="memberName" />
+                  </div>
+
+                  <div class="form-group col-md-4">
+                    <label className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >الشهرة</label>
+                    <input type="text" class="form-control" id="fame" name="fame" />
+                  </div>
                 </div>
-                <div class="form-group col-md-2">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >محافظه</label>
-                  <select onChange={(e) => handleSelectedGovernorate(e.target.value)}>
-                    <optgroup label='المحافظة'>
-                      {
-                        governoratesData.map((governorate, index) => (
 
-                          <option value={governorate.code} key={index}>
-                            {governorate.governorate_name_ar}
-                          </option>
-
-                        ))
-                      }
-                    </optgroup>
-                  </select>
-
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-5">
+                    <label className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >الرقم القومي</label>
+                    <input type="text" class="form-control" id="nationalId" name="nationalId" />
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >جهة الاصدار</label>
+                    <input type="text" class="form-control" id="issuingAuthority" name="issuingAuthority" />
+                  </div>
+                  <div class="form-group col-md-3">
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    > السن </label>
+                    <input type="text" class="form-control" id="age" name="age" />
+                  </div>
                 </div>
-                <div class="form-group form-row col-md-4">
-                  {selectedGovernorate && (
-                    <>
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-4">
+                    <label for="birthdate" className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >تاريخ الميلاد</label>
+                    <input type="date" class="form-control" id="birthdate" name="birthdate" />
+                  </div>
 
-                      <div className='form-group col-md-6'>
+                  <div class="form-group col-md-2">
+                    <label for="maritalStatus" className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >الحالة الاجتماعية</label>
+                    <input type="text" class="form-control" id="maritalStatus" name="maritalStatus" />
+                  </div>
 
-                        <div>
-                          <label
-                            className='d-flex'
-                            style={{
-                              fontSize: "20px",
-                              fontWeight: "600"
-                            }}
-                          >مدينة</label>
-                          <div className='form-field'>
-                            <select>
-                              <optgroup label='مدينة'>
-                                {
-                                  selectedGovernorate.cities.map((city, index) => {
-                                    return (
+                  <div class="form-group col-md-2">
+                    <label for="religion" className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >الديانة</label>
+                    <input type="text" class="form-control" id="religion" name="religion" />
+                  </div>
+
+                  <div className='form-check col-md-4'>
+                    <label
+                      className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600",
+                        marginLeft: "20%",
+                      }}
+                    > النوع : </label>
+                    <div className='col-md-4 form-group'>
+                      <div>
+                        <label class="form-check-label"
+                          style={{
+                            fontSize: "25px",
+                            fontWeight: "600"
+                          }}
+                        >
+                          ذكر
+                        </label>
+                        <input class="form-check-input" type="radio" name='gender' value='ذكر' id="male" />
+                      </div>
+                      <div>
+                        <label class="form-check-label"
+                          style={{
+                            fontSize: "25px",
+                            fontWeight: "600"
+                          }}>
+                          انثى
+                        </label>
+                        <input class="form-check-input" type="radio" name='gender' value='أنثى' id="female" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className='form-row mb-3 form-optgroup'>
+                  <div class="form-group col-md-2">
+                    <label for="governorate" className='d-flex'
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "600"
+                      }}
+                    >محافظة</label>
+                    <select onChange={(e) => handleSelectedGovernorate(e.target.value)} id="governorate" name="governorate">
+                      <optgroup label='المحافظة'>
+                        {
+                          governoratesData.map((governorate, index) => (
+                            <option value={governorate.code} key={index}>
+                              {governorate.governorate_name_ar}
+                            </option>
+                          ))
+                        }
+                      </optgroup>
+                    </select>
+                  </div>
+
+                  <div class="form-group form-row col-md-6">
+                    {selectedGovernorate && (
+                      <>
+                        <div className='form-group col-md-6'>
+                          <div>
+                            <label
+                              className='d-flex'
+                              style={{
+                                fontSize: "20px",
+                                fontWeight: "600"
+                              }}
+                            >مدينة</label>
+                            <div className='form-field'>
+                              <select id="city" name="city">
+                                <optgroup label='مدينة'>
+                                  {
+                                    selectedGovernorate.cities.map((city, index) => (
                                       <option key={index}>
                                         {city}
                                       </option>
-                                    )
+                                    ))
                                   }
-
-                                  )
-                                }
-                              </optgroup>
-                            </select>
+                                </optgroup>
+                              </select>
+                            </div>
                           </div>
-                        </div>
-                        <div>
-                          <label
-                            className='d-flex'
-                            style={{
-                              fontSize: "20px",
-                              fontWeight: "600"
-                            }}
-                          >مركز</label>
-                          <div className='form-field'>
-                            <select>
-                              <optgroup label='مركز / شرطة'>
-                                {
-                                  selectedGovernorate.police.map((police, index) => {
-                                    return (
+                          <div>
+                            <label
+                              className='d-flex'
+                              style={{
+                                fontSize: "20px",
+                                fontWeight: "600"
+                              }}
+                            >مركز</label>
+                            <div className='form-field'>
+                              <select id="policeStation" name="policeStation">
+                                <optgroup label='مركز / شرطة'>
+                                  {
+                                    selectedGovernorate.police.map((police, index) => (
                                       <option key={index}>
                                         {police}
                                       </option>
-                                    )
+                                    ))
                                   }
-
-                                  )
-                                }
-                              </optgroup>
-                            </select>
+                                </optgroup>
+                              </select>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="form-group col-md-6">
-                        <div>
-                          <label
-                            className='d-flex'
-                            style={{
-                              fontSize: "20px",
-                              fontWeight: "600"
-                            }}
-                          >حي</label>
-                          <div className='form-field'>
-                            <select>
-                              <optgroup label='حي'>
-                                <option value="test">حي  </option>
-                              </optgroup>
-                            </select>
+                        <div className="form-group col-md-6">
+                          <div>
+                            <label
+                              className='d-flex'
+                              style={{
+                                fontSize: "20px",
+                                fontWeight: "600"
+                              }}
+                            >حي</label>
+                            <div className='form-field'>
+                              <select id="district" name="district">
+                                <optgroup label='حي'>
+                                  <option value="test">حي</option>
+                                </optgroup>
+                              </select>
+                            </div>
+                          </div>
+                          <div>
+                            <label
+                              className='d-flex'
+                              style={{
+                                fontSize: "20px",
+                                fontWeight: "600"
+                              }}
+                            >شياخة</label>
+                            <div className='form-field'>
+                              <select id="districtPolice" name="districtPolice">
+                                <optgroup label='شياخة'>
+                                  <option value="test">شياخة</option>
+                                </optgroup>
+                              </select>
+                            </div>
                           </div>
                         </div>
-                        <div>
-                          <label
-                            className='d-flex'
-                            style={{
-                              fontSize: "20px",
-                              fontWeight: "600"
-                            }}
-                          >شياخة</label>
-                          <div className='form-field'>
-                            <select>
-                              <optgroup label='شياخة'>
-                                <option value="test"> شياخة </option>
-                              </optgroup>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    </>
-                  )}
-                </div>
-
-                <div className='form-check col-md-4'>
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >النوع:</label>
-                  <div className='col-md-4 form-group'>
-
-                    <div>
-                      <label class="form-check-label"
-
-                        style={{
-                          fontSize: "25px",
-                          fontWeight: "600"
-                        }}
-                      >
-                        ذكر
-                      </label>
-                      <input class="form-check-input" type="radio" name='النوع' value='ذكر' id="gridCheck" />
-                    </div>
-                    <div>
-                      <label class="form-check-label"
-                        style={{
-                          fontSize: "25px",
-                          fontWeight: "600"
-                        }}>
-                        انثى
-                      </label>
-                      <input class="form-check-input" type="radio" name='النوع' value='أثنثي' id="gridCheck" />
-                    </div>
+                      </>
+                    )}
                   </div>
-                </div>
-              </div>
 
-
-              <div class="form-row mb-3">
-                <div class="form-group col-md-6">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >المؤهل الدرسي</label>
-                  <input type="text" class="form-control" id="inputCity" />
-                </div>
-
-                <div class="form-group col-md-4">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >التخصص</label>
-                  <input type="text" class="form-control" id="inputCity" />
 
                 </div>
 
-                <div class="form-group col-md-2">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >سنة</label>
-                  <input type="date" class="form-control" id="inputZip" />
-                </div>
-
-              </div>
-
-              <div class="form-row mb-3">
-                <div class="form-group col-md-6">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  > الدراسات العليا</label>
-                  <input type="text" class="form-control" id="inputCity" />
-                </div>
-
-                <div class="form-group col-md-4">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >التخصص</label>
-                  <input type="text" class="form-control" id="inputCity" />
-
-                </div>
-
-                <div class="form-group col-md-2">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >سنة</label>
-                  <input type="date" class="form-control" id="inputZip" />
-                </div>
-
-              </div>
-
-              <div class="form-row mb-3">
-                <div class="form-group col-md-5">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  > الوظيفه</label>
-                  <input type="text" class="form-control" id="inputCity" />
-                </div>
-
-                <div class="form-group col-md-4">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >جهةالعمل</label>
-                  <input type="text" class="form-control" id="inputCity" />
-
-                </div>
-
-                <div class="form-group col-md-3">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >عنوان العمل</label>
-                  <input type="text" class="form-control" id="inputCity" />
-
-                </div>
-
-              </div>
-
-              <div class="form-row mb-3">
-                <div class="form-group col-md-12">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  > عنوان الاقامه وفقا لبطاقة الرقم القومي</label>
-                  <input type="text" class="form-control" id="inputCity" />
-                </div>
-              </div>
-
-              <div class="form-row mb-3">
-                <div class="form-group col-md-12">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  > عنوان الاقامه العفلي تفصيليا</label>
-                  <input type="text" class="form-control" id="inputCity" />
-                </div>
-              </div>
-
-              <div className='form-row mb-3 form-check-ex'>
-
-                <label
-                  className='d-flex'
+                <div
                   style={{
-                    fontSize: "20px",
-                    fontWeight: "600"
-                  }}
-                > عنوان المراسلات:</label>
-
-                <div className='col-md-4 form-group'>
-                  <div>
-                    <label class="form-check-label"
-
-                      style={{
-                        fontSize: "25px",
-                        fontWeight: "600"
-                      }}
-                    >
-                      محل الاقامة
-                    </label>
-                    <input class="form-check-input" type="radio" name='عنوان المراسلات' value='محل الاقامة' id="gridCheck" />
-                  </div>
-                  <div>
-                    <label class="form-check-label"
-                      style={{
-                        fontSize: "25px",
-                        fontWeight: "600"
-                      }}>
-                      محل العمل
-                    </label>
-                    <input class="form-check-input" type="radio" name='عنوان المراسلات' value='محل العمل' id="gridCheck" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-row mb-3">
-                <div class="form-group col-md-12">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  > عنوان الاقامه العفلي تفصيليا</label>
-                  <input type="text" class="form-control" id="inputCity" />
-                </div>
-              </div>
-
-              <div className='form-row mb-3'>
-                <div className='col-md-2 d-flex'>
-                  <h4>التليفون :</h4>
-                </div>
-                <div class="form-group col-md-5">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >منزل</label>
-                  <input type="text" class="form-control" id="inputAddress2" />
-                </div>
-                <div class="form-group col-md-4">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >محمول</label>
-                  <input type="tel" class="form-control" id="inputAddress2" />
-                </div>
-
-              </div>
-
-              <div class="form-row mb-3">
-                <div class="form-group col-md-12">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >الايميل</label>
-                  <input type="email" class="form-control" id="inputCity" />
-                </div>
-              </div>
-
-              <div className='form-row mb-3'>
-                <div className=' form-check-ex col-md-4'>
-
-                  <div className='title'>
-                    <h4>هل انت عضو باحد النقابات:</h4>
-                  </div>
-                  <div className='col-md-4 form-group'>
-
-                    <div>
-                      <label class="form-check-label"
-                        style={{
-                          fontSize: "25px",
-                          fontWeight: "600"
-                        }}
-                      >
-                        نعم
-                      </label>
-                      <input class="form-check-input" type="radio" name='عضوية النقابة' value='نعم' id="gridCheck" />
-                    </div>
-                    <div>
-                      <label class="form-check-label"
-                        style={{
-                          fontSize: "25px",
-                          fontWeight: "600"
-                        }}>
-                        لا
-                      </label>
-                      <input class="form-check-input" type="radio" name='عضوية النقابة' value='لا' id="gridCheck" />
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group col-md-3"
-                  style={{
-                    marginRight: "10%"
+                    display: "flex",
+                    justifyContent: "center",
                   }}
                 >
-                  <label className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >اسم النقابه</label>
-                  <input type="text" class="form-control" id="inputPassword4" />
-                </div>
-                <div class="form-group col-md-3">
-                  <label className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  > الصفه الحزبيه</label>
-                  <input type="text" class="form-control" id="inputPassword4" />
-                </div>
-              </div>
 
-              <div class="form-row mb-3">
-                <div class="form-group col-md-6">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  > فرع النقابة التابع له محافظة</label>
-                  <input type="text" class="form-control" id="inputCity" />
+                  <button name='save' type="submit" className='save'>حفظ</button>
                 </div>
 
-                <div class="form-group col-md-4">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >عضو لجنه عامه/حزبيه </label>
-                  <input type="text" class="form-control" id="inputCity" />
+              </form>
+            )
 
-                </div>
+            }
 
-                <div class="form-group col-md-2">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >تريخ الانضمام</label>
-                  <input type="date" class="form-control" id="inputZip" />
-                </div>
-
-              </div>
-
-
-              <div className='form-row mb-3'>
-                <div className=' form-check-ex col-md-5'>
-
-                  <div className='title'>
-                    <h4>هل كنت عضوا فً حزب من قبل؟ :</h4>
-                  </div>
-                  <div className='col-md-4 form-group'>
-
-                    <div>
-                      <label class="form-check-label"
-                        style={{
-                          fontSize: "25px",
-                          fontWeight: "600"
-                        }}
-                      >
-                        نعم
-                      </label>
-                      <input class="form-check-input" type="radio" name='عضوية النقابة' value='نعم' id="gridCheck" />
-                    </div>
-                    <div>
-                      <label class="form-check-label"
-                        style={{
-                          fontSize: "25px",
-                          fontWeight: "600"
-                        }}>
-                        لا
-                      </label>
-                      <input class="form-check-input" type="radio" name='عضوية النقابة' value='لا' id="gridCheck" />
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group col-md-3"
-                  style={{
-                    marginRight: "2%"
-                  }}
-                >
-                  <label className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >اسم الحزب</label>
-                  <input type="text" class="form-control" id="inputPassword4" />
-                </div>
-                <div class="form-group col-md-3"
-                  style={{
-                    // marginRight:"10%"
-                  }}
-                >
-                  <label className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  > تاريخ الاستقاله</label>
-                  <input type="date" class="form-control" id="inputPassword4" />
-                </div>
-              </div>
-
-              <div class="form-row mb-3">
-                <div class="form-group col-md-12">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  > سبب الاستقاله</label>
-                  <textarea type="text" class="form-control" id="inputCity" />
-                </div>
-              </div>
-              <div className='form-row mb-3 form-check-ex'>
-                <div className='title col-md-4'>
-                  <h4>هل سبق لك الترشح في انتخابات سابقه:</h4>
-                </div>
-                <div className='col-md-4 form-group'>
-
-                  <div>
-                    <label class="form-check-label"
-
-                      style={{
-                        fontSize: "25px",
-                        fontWeight: "600"
-                      }}
-                    >
-                      نعم
-                    </label>
-                    <input class="form-check-input" type="radio" name='الترشح في الإنتخابات' value='نعم' id="gridCheck" />
-                  </div>
-                  <div>
-                    <label class="form-check-label"
-                      style={{
-                        fontSize: "25px",
-                        fontWeight: "600"
-                      }}>
-                      لا
-                    </label>
-                    <input class="form-check-input" type="radio" name='الترشح في الإنتخابات' value='لا' id="gridCheck" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-row mb-3">
-                <div class="form-group col-md-12">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  > تاريخ الترشح </label>
-                  <input type="date" class="form-control" id="inputCity" />
-                </div>
-              </div>
-
-
-              <div className='form-row mb-3 form-check-ex'>
-                <div className='title col-md-4'>
-                  <h4> هل درست برنامج الحزب:</h4>
-                </div>
-                <div className='col-md-4 form-group'>
-
-                  <div>
-                    <label class="form-check-label"
-
-                      style={{
-                        fontSize: "25px",
-                        fontWeight: "600"
-                      }}
-                    >
-                      نعم
-                    </label>
-                    <input class="form-check-input" type="radio" name='دراسة برنامج الحزب' value='نعم' id="gridCheck" />
-                  </div>
-                  <div>
-                    <label class="form-check-label"
-                      style={{
-                        fontSize: "25px",
-                        fontWeight: "600"
-                      }}>
-                      لا
-                    </label>
-                    <input class="form-check-input" type="radio" name='دراسة برنامج الحزب' value='لا' id="gridCheck" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-row mb-3">
-                <div class="form-group col-md-12">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >ما سبب طلبك اإلنضمام لحزب العدل</label>
-                  <textarea type="text" class="form-control" id="inputCity" />
-                </div>
-              </div>
-
-              <div className='form-row mb-3 form-check-ex'>
-
-                <label
-                  className='d-flex '
-                  style={{
-                    fontSize: "20px",
-                    fontWeight: "600"
-                  }}
-                > ما المجال التخصصى الذي ٌمكنك فٌه مساعدة الحزب ؟ :</label>
-
-                <div className='col-md-10 form-group-edit'>
-                  <div>
-                    <label class="form-check-label"
-
-                      style={{
-                        fontSize: "25px",
-                        fontWeight: "600"
-                      }}
-                    >
-                      الشباب
-                    </label>
-                    <input class="form-check-input" type="radio" name='المجال التخصصي' value='مساعدة الشباب' id="gridCheck" />
-                  </div>
-                  <div>
-                    <label class="form-check-label"
-                      style={{
-                        fontSize: "25px",
-                        fontWeight: "600"
-                      }}>
-                      المرأه
-                    </label>
-                    <input class="form-check-input" type="radio" name='المجال التخصصي' value='مساعدة المرأه' id="gridCheck" />
-
-                  </div>
-                  <div>
-                    <label class="form-check-label"
-                      style={{
-                        fontSize: "25px",
-                        fontWeight: "600"
-                      }}>
-                      الاعلام
-                    </label>
-                    <input class="form-check-input" type="radio" name='المجال التخصصي' value='مساعدة الاعلام' id="gridCheck" />
-
-                  </div>
-                  <div>
-                    <label class="form-check-label"
-                      style={{
-                        fontSize: "25px",
-                        fontWeight: "600"
-                      }}>
-                      التثقيف
-                    </label>
-                    <input class="form-check-input" type="radio" name='المجال التخصصي' value='مساعدة التثقيف' id="gridCheck" />
-
-                  </div>
-                  <div>
-                    <label class="form-check-label"
-                      style={{
-                        fontSize: "25px",
-                        fontWeight: "600"
-                      }}>
-                      التنظيم
-                    </label>
-                    <input class="form-check-input" type="radio" name='المجال التخصصي' value='مساعدة التنظيم' id="gridCheck" />
-
-                  </div>
-                  <div>
-                    <label class="form-check-label"
-                      style={{
-                        fontSize: "25px",
-                        fontWeight: "600"
-                      }}>
-                      اللجان الفنيه
-                    </label>
-                    <input class="form-check-input" type="radio" name='المجال التخصصي' value='مساعدة اللجان الفنية' id="gridCheck" />
-
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-row mb-3">
-                <div class="form-group col-md-12">
-                  <label
-                    className='d-flex'
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: "600"
-                    }}
-                  >ما هي وسيلة التواصل المناسبة لك</label>
-                  <textarea type="text" class="form-control" id="inputCity" />
-                </div>
-              </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-
-                <button type="submit" className='save'>حفظ</button>
-              </div>
-
-            </form>
           </Box>
         </Box>
       </div>
