@@ -1,12 +1,10 @@
 import React from 'react'
 import {Routes, Route, BrowserRouter} from "react-router-dom";
-import About from './pages/About';
+import Members from './pages/MembersShow';
 import Settings from './pages/Settings';
 import Home from './pages/Home';
-import Messges from './pages/Messges';
-import Edit from './pages/Edit';
-import Governorates from './pages/Governorates';
-// import Maseggs from './pages/Maseggs';
+import AddMembers from './pages/AddMembers';
+import EditMembers from './pages/EditMembers';
 
 export default function App() {
   return (
@@ -14,11 +12,10 @@ export default function App() {
       <Routes>
         <Route>
         <Route path="/" exact element={<Home/>}></Route>
-        <Route path="/about" exact element={<About/>}></Route>
+        <Route path="/Members" exact element={<Members/>}></Route>
         <Route path="/settings" exact element={<Settings/>}></Route>
-        <Route path="/messges" exact element={<Messges/>}></Route>
-        <Route path="/governorates" exact element={<Governorates/>}></Route>
-        <Route path="/edit" exact element={<Edit/>}></Route>
+        <Route path="/AddMembers" exact element={<AddMembers/>}></Route>
+        <Route path="/edit" exact element={<EditMembers/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
