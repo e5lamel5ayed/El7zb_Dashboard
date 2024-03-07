@@ -1,30 +1,32 @@
+// React
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+// Material-UI Components
 import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import CssBaseline from '@mui/material/CssBaseline';
-// import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
+
+// Material-UI Icons
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import LogoutIcon from '@mui/icons-material/Logout';
-import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import TuneIcon from '@mui/icons-material/Tune';
 import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt';
 import FeedIcon from '@mui/icons-material/Feed';
-import KeyboardCommandKeyIcon from '@mui/icons-material/KeyboardCommandKey';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { useNavigate } from "react-router-dom";
-import { useAppStore } from '../appStore';
 import GroupsIcon from '@mui/icons-material/Groups';
 
-
+// Custom Hooks
+import { useAppStore } from '../appStore';
 
 
 const drawerWidth = 240;
@@ -79,7 +81,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function Sidenav() {
   const theme = useTheme();
-  // const [open, setOpen] = React.useState(true);
   const navigate = useNavigate();
   const open = useAppStore((state) => state.dopen);
 
@@ -98,41 +99,36 @@ export default function Sidenav() {
         </DrawerHeader>
         <Divider />
         <List>
-          <ListItem className='dd' disablePadding sx={{ display: "block",padding:"2px" }} onClick={() => { navigate("/") }}>
+          <ListItem className='dd' disablePadding sx={{ display: "block", padding: "2px" }} onClick={() => { navigate("/") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
-                // justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
             >
               <DashboardIcon
                 sx={{
                   minwidth: 0,
-                  // mr: open ? 3 : "auto",
                   justifyContent: "center",
                 }}
               >
                 <InboxIcon />
               </DashboardIcon>
-              {/* <ListItemText className='slider-text' primary="الرئيسيه"  sx={{ opacity: open ? 1 : 0 }} /> */}
               <h4 className='slider-text' style={{ opacity: open ? 1 : 0 }}>الرئيسيه</h4>
 
             </ListItemButton>
           </ListItem>
 
-          <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("/about") }}>
+          <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("/Members") }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
-                // justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
             >
               <GroupsIcon
                 sx={{
                   minwidth: 0,
-                  // mr: open ? 3 : "auto",
                   justifyContent: "center",
                 }}
               >
@@ -146,14 +142,12 @@ export default function Sidenav() {
             <ListItemButton
               sx={{
                 minHeight: 48,
-                // justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
             >
               <TuneIcon
                 sx={{
                   minwidth: 0,
-                  // mr: open ? 3 : "auto",
                   justifyContent: "center",
                 }}
               >
@@ -167,14 +161,12 @@ export default function Sidenav() {
             <ListItemButton
               sx={{
                 minHeight: 48,
-                // justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
             >
               <MarkUnreadChatAltIcon
                 sx={{
                   minwidth: 0,
-                  // mr: open ? 3 : "auto",
                   justifyContent: "center",
                 }}
               >
@@ -188,14 +180,12 @@ export default function Sidenav() {
             <ListItemButton
               sx={{
                 minHeight: 48,
-                // justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
             >
               <FeedIcon
                 sx={{
                   minwidth: 0,
-                  // mr: open ? 3 : "auto",
                   justifyContent: "center",
                 }}
               >
@@ -209,14 +199,12 @@ export default function Sidenav() {
             <ListItemButton
               sx={{
                 minHeight: 48,
-                // justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
             >
               <SettingsIcon
                 sx={{
                   minwidth: 0,
-                  // mr: open ? 3 : "auto",
                   justifyContent: "center",
                 }}
               >
@@ -230,14 +218,12 @@ export default function Sidenav() {
             <ListItemButton
               sx={{
                 minHeight: 48,
-                // justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
             >
               <LogoutIcon
                 sx={{
                   minwidth: 0,
-                  // mr: open ? 3 : "auto",
                   justifyContent: "center",
                 }}
               >
@@ -251,8 +237,4 @@ export default function Sidenav() {
     </Box>
   );
 }
-
-
-
-
 
