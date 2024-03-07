@@ -1,12 +1,14 @@
+/* Box Styles */
 .Box-style {
     width: 75%;
-        position: relative;
-        margin-right:5%;
-         margin-top: 5%;
-         margin-bottom: 5%;
-        background-color: #fff;
+    position: relative;
+    margin-right: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: #fff;
 }
 
+/* Background Colors */
 .grade1 {
     background-color: #009359;
 }
@@ -14,14 +16,16 @@
 .bgcolor {
     min-height: 100vh;
     background: #ECEFF1;
-    background: linear-gradient (158deg, rgb(224, 224, 224) 0%, rrgb(233, 237, 254) 100%);
+    background: linear-gradient(158deg, rgb(224, 224, 224) 0%, rgb(233, 237, 254) 100%);
 }
 
+/* Logo */
 .logo {
     display: flex;
     justify-content: space-between;
 }
 
+/* Head Text */
 .head-text {
     color: #dc1f27;
     font-size: 16px;
@@ -29,6 +33,7 @@
     font-family: sans-serif;
 }
 
+/* Dropdown */
 .dd {
     margin-top: 25px;
 }
@@ -39,19 +44,18 @@
     color: #fff;
 }
 
+/* Logout */
 .logout {
     background-color: #dc1f27;
-    /* width: 50px; */
-    /* margin-left: 70px; */
-    /* margin-right: 20px; */
     color: #fff;
 }
 
+/* Add Member */
 .addMember:hover {
     background-color: #dc1f27 !important;
-
 }
 
+/* Hoverr */
 .hoverr {
     background-color: #dc1f27 !important;
     display: block !important;
@@ -60,7 +64,6 @@
     margin-top: 50px !important;
     width: 29% !important;
     font-size: 20px !important;
-
 }
 
 .hoverr:hover {
@@ -68,6 +71,7 @@
     color: #fff !important;
 }
 
+/* Save Button */
 .save {
     padding: 6px;
     width: 21%;
@@ -79,6 +83,7 @@
     margin-top: 22px;
 }
 
+/* Back Button */
 .back {
     width: 15%;
     background-color: #dc1f27;
@@ -91,15 +96,20 @@
     position: absolute;
     left: 0;
 }
-.link-edit{
-    color: #fff;
-    text-decoration: none;
-}
-.form-edit{
-    direction: rtl;
-    padding: 8% 3% ;
+
+/* Link Edit */
+.link-edit {
+    color: #fff !important;
+    text-decoration: none !important;
 }
 
+/* Form Edit */
+.form-edit {
+    direction: rtl;
+    padding: 8% 3%;
+}
+
+/* Slider Text */
 .slider-text {
     font-size: 23px !important;
     font-weight: 800 !important;
@@ -107,6 +117,7 @@
     margin-right: auto;
 }
 
+/* Border Styles */
 .borderr {
     border-top-style: solid;
     border-top-width: 2.5px;
@@ -115,16 +126,16 @@
     border-top-right-radius: 1%;
 }
 
-.form-optgroup {
-    select {
-        width: 100%;
-        height: 30px;
-        margin: 10px 0;
-        border-radius: 6px;
-        border: 1px solid #aaa;
-    }
+/* Form Optgroup */
+.form-optgroup select {
+    width: 100%;
+    height: 30px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #aaa;
 }
 
+/* Form Group Edit */
 .form-group-edit {
     display: flex;
     gap: 60px;
@@ -133,8 +144,8 @@
     flex-wrap: wrap;
 }
 
-.tab1,
-.tab2 {
+/* Tabs */
+.tab1, .tab2 {
     font-size: 32px;
     font-weight: 600;
     cursor: pointer;
@@ -144,12 +155,12 @@
     text-align: center;
 }
 
-.tab1:hover,.tab2:hover{
-    background-color:#dc1f27;
+.tab1:hover, .tab2:hover {
+    background-color: #dc1f27;
     color: #fff;
 }
-.tab1:focus,
-.tab2:focus {
+
+.tab1:focus, .tab2:focus {
     background-color: #dc1f27;
     color: #fff;
 }
