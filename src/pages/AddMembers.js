@@ -1935,8 +1935,8 @@ export default function Settings() {
             ) : (
               <form className="form-edit">
                 <div class="form-row ">
-                  <div className="col-md-7">
-                    <div class="form-row mb-3">
+                  <div className="col-lg-7 col-sm-12 ">
+                    <div class="form-row mb-3 col-sm-12">
                       <div class="form-group col-md-6">
                         <label
                           for="membershipNumber"
@@ -1975,7 +1975,7 @@ export default function Settings() {
                       </div>
                     </div>
 
-                    <div class="form-row mb-3">
+                    <div class="form-row mb-3 col-sm-12">
                       <div class="form-group col-md-8">
                         <label
                           for="memberName"
@@ -2014,9 +2014,25 @@ export default function Settings() {
                       </div>
                     </div>
 
+                    <div style={{ display: "flex", marginTop: "35px", padding: "10px" }}>
+                  <label className="ml-5">
+                    <h4>اضف صوره</h4>
+
+                  </label>
+                  <input
+
+                    type="file"
+                    accept="image/*"
+                    // hidden
+                    onChange={handleImageChange}
+
+                  />
+                </div>
+
+
                   </div>
 
-                  <div className="form-group col-md-4 mr-5 mb-5 div-img">
+                  <div className="form-group col-lg-4 col-sm-12 mr-5 div-img">
 
                     <div className="upload_img">
                       <h3 className="text-right">صوره شخصيه</h3>
@@ -2029,9 +2045,10 @@ export default function Settings() {
                       </div>
                     </div>
 
+                
 
                   </div>
-
+                  
                 </div>
 
                 <div class="form-row mb-3">
@@ -2306,23 +2323,7 @@ export default function Settings() {
 
                 </div >
 
-                <div style={{ display: "flex", marginBottom: "35px", marginTop: "35px", padding: "10px" }}>
-                  <label className="ml-5">
-                    <h4>اضف صوره</h4>
-
-                  </label>
-                  <input
-
-
-                    type="file"
-                    accept="image/*"
-                    // hidden
-                    onChange={handleImageChange}
-
-                  />
-                </div>
-
-
+                
                 <div
                   style={{
                     display: "flex",
