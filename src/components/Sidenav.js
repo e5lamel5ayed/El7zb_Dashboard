@@ -1,5 +1,6 @@
 // React
-import React, {  useNavigate } from "react";
+import React from "react";
+import { useNavigate } from 'react-router-dom';
 import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
