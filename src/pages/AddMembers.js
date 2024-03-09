@@ -2040,7 +2040,7 @@ export default function Settings() {
                         <img
                           src={thumbnail}
                           alt="thumbnail"
-                          style={{ maxWidth: "300px", maxHeight: "300px", textAlign: "center" }}
+                          style={{ maxWidth: "300px", maxHeight: "29vh", textAlign: "center" }}
                         />
                       </div>
                     </div>
