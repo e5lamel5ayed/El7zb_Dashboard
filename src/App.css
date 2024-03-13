@@ -1,0 +1,35 @@
+.form-check {
+  display: flex;
+  padding-right: 20px;
+  justify-content: center;
+
+  .form-group {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+    }
+  }
+}
+
+.form-check-ex {
+  display: flex;
+
+  .form-group {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+    }
+  }
+}
