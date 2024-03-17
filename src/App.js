@@ -9,6 +9,10 @@ import MemberPerformance from './pages/Members/MemberPerformance/MembersShow';
 import MemberPerformanceData from './pages/Members/MemberPerformance/Components/MembersData';
 import AddRules from './pages/Members/MemberRole/Components/AddRules';
 import ViewRules from './pages/Members/MemberRole/ViewRules';
+import ViewRole from './pages/Members/RoleInTheParty/MembersShow';
+import AddRole from './pages/Members/RoleInTheParty/Components/MembersData';
+import ViewTool from './pages/Members/OversightTools/MembersShow';
+import AddTool from './pages/Members/OversightTools/Components/MembersData';
 
 export default function App() {
   return (
@@ -23,6 +27,10 @@ export default function App() {
         <Route path="/MemberPerformance" exact element={<MemberPerformance/>}></Route>
         <Route path="/AddRules" exact element={<AddRules/>}></Route>
         <Route path="/ViewRules" exact element={<ViewRules/>}></Route>
+        <Route path="/AddRole" exact element={<AddRole/>}></Route>
+        <Route path="/ViewRole" exact element={<ViewRole/>}></Route>
+        <Route path="/AddTool" exact element={<AddTool/>}></Route>
+        <Route path="/ViewTool" exact element={<ViewTool/>}></Route>
         <Route path="/edit" exact element={<EditMembers/>}></Route>
         </Route>
       </Routes>
