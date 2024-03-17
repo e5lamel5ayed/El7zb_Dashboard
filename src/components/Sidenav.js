@@ -161,13 +161,13 @@ export default function Sidenav() {
                   </ListItemButton>
                 </ListItem>
 
-                <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("") }}>
+                <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("/ViewRole") }}>
                   <ListItemButton>
                     <h4 className='dd-text' style={{ opacity: open ? 1 : 0 }}> اضافه دور في الحزب</h4>
                   </ListItemButton>
                 </ListItem>
 
-                <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("") }}>
+                <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("/ViewTool") }}>
                   <ListItemButton>
                     <h4 className='dd-text' style={{ opacity: open ? 1 : 0 }}>  الرقابه على العضويه</h4>
                   </ListItemButton>
