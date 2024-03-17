@@ -2,9 +2,7 @@
 .Box-style {
     width: 75%;
     position: relative;
-    margin-right: 5%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin: 5%;
     background-color: #fff;
 }
 
@@ -66,14 +64,16 @@
     background-color: #e7111c !important;
     color: #fff !important;
 }
-.div-img{
+
+.div-img {
     display: flex;
     align-items: center;
     justify-content: space-around;
     display: flex;
     flex-direction: column;
 }
-.upload_img{
+
+.upload_img {
     outline: 0px;
     /* -webkit-tap-highlight-color: transparent; */
     display: block;
@@ -88,7 +88,8 @@
     height: 40vh;
     width: 350px;
 }
-.upload_img_style{
+
+.upload_img_style {
     /* position: absolute; */
     inset: 0px;
     display: flex;
@@ -102,6 +103,7 @@
     height: 29vh;
     width: 315px;
 }
+
 /* Save Button */
 .save {
     padding: 6px;
@@ -176,7 +178,8 @@
 }
 
 /* Tabs */
-.tab1, .tab2 {
+.tab1,
+.tab2 {
     font-size: 32px;
     font-weight: 600;
     cursor: pointer;
@@ -184,22 +187,47 @@
     border: none;
     background-color: #fff;
     text-align: center;
+    max-width: 80%;
 }
 
-.tab1:hover, .tab2:hover {
+.tab3 {
+    font-size: 32px;
+    font-weight: 600;
+    padding: 20px 50px 20px 50px;
+    border: none;
+    background-color: #dc1f27;
+    color: #fff;
+    text-align: center;
+    max-width: 80%;
+}
+
+
+.tab1:hover,
+.tab2:hover {
     background-color: #dc1f27;
     color: #fff;
 }
 
-.tab1:focus, .tab2:focus {
+.tab1:focus,
+.tab2:focus {
     background-color: #dc1f27;
     color: #fff;
 }
-.accord{
-    margin: 0!important;
+
+.accord {
+    margin: 0 !important;
 }
-.dd-text{
+
+.dd-text {
     font-size: 20px;
     font-weight: 800;
-  
+
+}
+
+.search-edit {
+    border-width: 1.6px 1px 1px 1px;
+    border-color: #dc1f27 #cecece #cecece #cecece;
+    border-style: solid;
+    padding: 10px 20px;
+    border-radius: 3px 3px 0px 0px;
 }
