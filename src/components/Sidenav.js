@@ -155,7 +155,7 @@ export default function Sidenav() {
                   </ListItemButton>
                 </ListItem>
 
-                <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("") }}>
+                <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("/MemberPerformance") }}>
                   <ListItemButton>
                     <h4 className='dd-text' style={{ opacity: open ? 1 : 0 }}>  متابعه اداء العضو</h4>
                   </ListItemButton>
@@ -173,7 +173,7 @@ export default function Sidenav() {
                   </ListItemButton>
                 </ListItem>
 
-                <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("") }}>
+                <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("/ViewRules") }}>
                   <ListItemButton>
                     <h4 className='dd-text' style={{ opacity: open ? 1 : 0 }}>  القوانين المصدره من العضو</h4>
                   </ListItemButton>
