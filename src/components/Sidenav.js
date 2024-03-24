@@ -250,7 +250,7 @@ export default function Sidenav() {
             </AccordionSummary>
             <AccordionDetails >
               <List>
-                <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("") }}>
+                <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("/ViewPayments") }}>
                   <ListItemButton>
 
                     <h4 className='dd-text' style={{ opacity: open ? 1 : 0 }}> تسديد العضويه </h4>
