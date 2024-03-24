@@ -5,8 +5,10 @@ import Settings from "./pages/Settengs/Settings";
 import Home from "./pages/Home/Home";
 import AddMembers from "./pages/Members/AddMembers/Components/AddMembers";
 import EditMembers from "./pages/Members/AddMembers/EditMembers";
+
 import MemberPerformance from "./pages/Members/MemberPerformance/MembersShow";
 import MemberPerformanceData from "./pages/Members/MemberPerformance/Components/MembersData";
+
 import AddRules from "./pages/Members/MemberRole/Components/AddRules";
 import ViewRules from "./pages/Members/MemberRole/ViewRules";
 import ViewRole from "./pages/Members/RoleInTheParty/MembersShow";
@@ -17,6 +19,8 @@ import AddRenewal from "./pages/Members/MemberRenewal/Components/MembersData";
 import ViewRenewal from "./pages/Members/MemberRenewal/MembersShow";
 import AddCancel from "./pages/Members/MemberCancel/Components/MembersData";
 import ViewCancel from "./pages/Members/MemberCancel/MembersShow";
+import AddPayments from "./pages/Accounts/MemberPayments/Components/MembersData";
+import ViewPayments from "./pages/Accounts/MemberPayments/MembersShow";
 
 export default function App() {
   return (
@@ -31,8 +35,10 @@ export default function App() {
           <Route path="/AddCancel" exact element={<AddCancel />}></Route>
           <Route path="/ViewCancel" exact element={<ViewCancel />}></Route>
           <Route path="/settings" exact element={<Settings />}></Route>
-          <Route path="/MemberPerformanceData" exactelement={<MemberPerformanceData />}></Route>
+
+          <Route path="/MemberPerformanceData" exact element={<MemberPerformanceData />}></Route>
           <Route path="/MemberPerformance" exact element={<MemberPerformance />}></Route>
+
           <Route path="/AddRules" exact element={<AddRules />}></Route>
           <Route path="/ViewRules" exact element={<ViewRules />}></Route>
           <Route path="/AddRole" exact element={<AddRole />}></Route>
@@ -40,6 +46,9 @@ export default function App() {
           <Route path="/AddTool" exact element={<AddTool />}></Route>
           <Route path="/ViewTool" exact element={<ViewTool />}></Route>
           <Route path="/edit" exact element={<EditMembers />}></Route>
+
+          <Route path="/AddPayments" exact element={<AddPayments/>}></Route>
+          <Route path="/ViewPayments" exact element={<ViewPayments/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
