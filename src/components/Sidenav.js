@@ -256,19 +256,19 @@ export default function Sidenav() {
                     <h4 className='dd-text' style={{ opacity: open ? 1 : 0 }}> تسديد العضويه </h4>
                   </ListItemButton>
                 </ListItem>
-                <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("") }}>
+                <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("/ViewExpenses") }}>
                   <ListItemButton>
                     <h4 className='dd-text' style={{ opacity: open ? 1 : 0 }}> 	اضافه مصروفات  </h4>
                   </ListItemButton>
                 </ListItem>
 
-                <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("") }}>
+                <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("/ViewDonations") }}>
                   <ListItemButton>
                     <h4 className='dd-text' style={{ opacity: open ? 1 : 0 }}>  اضافه تبرعات </h4>
                   </ListItemButton>
                 </ListItem>
 
-                <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("") }}>
+                <ListItem className='dd' disablePadding sx={{ display: "block" }} onClick={() => { navigate("/ViewOtherIncome") }}>
                   <ListItemButton>
                     <h4 className='dd-text' style={{ opacity: open ? 1 : 0 }}> اضافه ايرادات اخرى </h4>
                   </ListItemButton>
@@ -380,8 +380,7 @@ export default function Sidenav() {
                     <h4 className='dd-text' style={{ opacity: open ? 1 : 0 }}> نتائج التصويت </h4>
                   </ListItemButton>
                 </ListItem>
-
-
+                
               </List>
             </AccordionDetails>
           </Accordion>
@@ -408,7 +407,6 @@ export default function Sidenav() {
                     <h4 className='dd-text' style={{ opacity: open ? 1 : 0 }}> .....</h4>
                   </ListItemButton>
                 </ListItem>
-
 
               </List>
             </AccordionDetails>
@@ -437,11 +435,9 @@ export default function Sidenav() {
                   </ListItemButton>
                 </ListItem>
 
-
               </List>
             </AccordionDetails>
           </Accordion>
-
 
           <Accordion className='accord' >
             <AccordionSummary
@@ -542,8 +538,6 @@ export default function Sidenav() {
                     <h4 className='dd-text' style={{ opacity: open ? 1 : 0 }}>الانضمام الى لجنه  </h4>
                   </ListItemButton>
                 </ListItem>
-
-
 
               </List>
             </AccordionDetails>
