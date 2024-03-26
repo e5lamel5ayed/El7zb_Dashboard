@@ -22,6 +22,15 @@ import ViewCancel from "./pages/Members/MemberCancel/MembersShow";
 import AddPayments from "./pages/Accounts/MemberPayments/Components/MembersData";
 import ViewPayments from "./pages/Accounts/MemberPayments/MembersShow";
 
+import AddExpenses from "./pages/Accounts/Expenses/Components/MembersData";
+import ViewExpenses from "./pages/Accounts/Expenses/MembersShow";
+
+import AddDonations from "./pages/Accounts/Donations/Components/MembersData";
+import ViewDonations from "./pages/Accounts/Donations/MembersShow";
+
+import AddOtherIncome from "./pages/Accounts/OtherIncome/Components/MembersData";
+import ViewOtherIncome from "./pages/Accounts/OtherIncome/MembersShow";
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -49,6 +58,15 @@ export default function App() {
 
           <Route path="/AddPayments" exact element={<AddPayments/>}></Route>
           <Route path="/ViewPayments" exact element={<ViewPayments/>}></Route>
+
+          <Route path="/AddExpenses" exact element={<AddExpenses/>}></Route>
+          <Route path="/ViewExpenses" exact element={<ViewExpenses />}></Route>
+          
+          <Route path="/AddDonations" exact element={<AddDonations/>}></Route>
+          <Route path="/ViewDonations" exact element={<ViewDonations/>}></Route>
+          
+          <Route path="/AddOtherIncome" exact element={<AddOtherIncome/>}></Route>
+          <Route path="/ViewOtherIncome" exact element={<ViewOtherIncome/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
